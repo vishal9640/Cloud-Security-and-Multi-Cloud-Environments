@@ -4,14 +4,14 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "wireguard_rg" {
   name     = "WireGuardRG"
-  location = "East US"
+  location = "West Europe"
 }
 
 resource "azurerm_virtual_network" "wireguard_vnet" {
   name                = "wireguard-vnet"
   resource_group_name = azurerm_resource_group.wireguard_rg.name
   location            = azurerm_resource_group.wireguard_rg.location
-  address_space       = ["10.2.0.0/16"]
+  address_space       = ["40.68.160.242"]
 }
 
 resource "azurerm_network_security_group" "wireguard_sg" {
@@ -28,7 +28,7 @@ resource "azurerm_network_security_rule" "wireguard_rule" {
   protocol                    = "Udp"
   source_port_range           = "*"
   destination_port_range      = "51820"
-  source_address_prefix       = "0.0.0.0/0"  # Change to AWS IP later
+  source_address_prefix       = "13.60.6.126"  # Change to AWS IP later
   destination_address_prefix  = "*"
   network_security_group_name = azurerm_network_security_group.wireguard_sg.name
   resource_group_name         = azurerm_resource_group.wireguard_rg.name

@@ -2,7 +2,7 @@ resource "null_resource" "wireguard_aws" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("~/.ssh/your-aws-key.pem")
+    private_key = file("D:\\Masters In CS\\Subjects\\Spring 2025\\awskey.pem")
     host        = aws_instance.wireguard_aws.public_ip
   }
 
@@ -19,7 +19,7 @@ resource "null_resource" "wireguard_azure" {
   connection {
     type        = "ssh"
     user        = "adminuser"
-    private_key = file("~/.ssh/your-azure-key.pem")
+    private_key = file("D:\\Masters In CS\\Subjects\\Spring 2025\\AzureLinuxServer_key.pem")
     host        = azurerm_linux_virtual_machine.wireguard_azure.public_ip
   }
 
