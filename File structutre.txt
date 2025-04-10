@@ -1,0 +1,17 @@
+multi-cloud-wireguard/               # Root Terraform directory
+│── main.tf                          # Root module (calls AWS & Azure modules)
+│── variables.tf                      # Global Terraform variables
+│── terraform.tfvars                  # Terraform variables file (DO NOT PUSH TO GITHUB)
+│── outputs.tf                        # Outputs from all modules (Optional)
+│── aws/                               # AWS Terraform Module
+│   ├── main.tf                        # AWS resources (VPC, EC2, Security Group)
+│   ├── variables.tf                    # AWS-specific variables
+│   ├── outputs.tf                      # AWS outputs (Public IP, VPC ID)
+│── azure/                              # Azure Terraform Module
+│   ├── main.tf                        # Azure resources (VNet, VM, Security Group)
+│   ├── variables.tf                    # Azure-specific variables
+│   ├── outputs.tf                      # Azure outputs (Public IP, VNet ID)
+│── wireguard/                          # WireGuard VPN Module
+│   ├── main.tf                        # WireGuard installation & configuration
+│   ├── variables.tf                    # WireGuard-specific variables
+│   ├── outputs.tf                      # WireGuard outputs (VPN connection details)

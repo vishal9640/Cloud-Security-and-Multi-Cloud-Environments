@@ -5,10 +5,10 @@ provider "aws" {
 resource "aws_instance" "wireguard_aws" {
   ami           = "ami-07a64b147d3500b6a"  # Amazon Linux 2 AMI
   instance_type = "t3.micro"
-  key_name      = "awskey.pem"
+  key_name      = "awskey"
   
   vpc_security_group_ids = [aws_security_group.wireguard_sg.id]
-
+  associate_public_ip_address = true 
   tags = {
     Name = "WireGuardAWS"
   }
@@ -22,14 +22,14 @@ resource "aws_security_group" "wireguard_sg" {
     from_port   = 51820
     to_port     = 51820
     protocol    = "udp"
-    cidr_blocks = ["40.68.160.242"]  # Change this to Azure IP later
+    cidr_blocks = ["10.1.0.0/16"]  # Change this to Azure IP later
   }
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["13.60.6.126"]  # Restrict SSH to your IP
+    cidr_blocks = ["0.0.0.0/0"]  # Restrict SSH to your IP
   }
 
   egress {
