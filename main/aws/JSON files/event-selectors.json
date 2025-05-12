@@ -1,0 +1,15 @@
+[
+    {
+      "ReadWriteType": "All",
+      "IncludeManagementEvents": true,
+      "DataResources": [
+        {
+          "Type": "AWS::S3::Object",
+          "Values": [
+            "arn:aws:s3:::student-portal-content/",
+            "arn:aws:s3:::student-portal-logs/"
+          ]
+        }
+      ]
+    }
+  ]

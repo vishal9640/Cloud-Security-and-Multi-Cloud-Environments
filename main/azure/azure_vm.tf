@@ -98,7 +98,7 @@ resource "azurerm_linux_virtual_machine" "wireguard_azure" {
   disable_password_authentication = true 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("D:\\Masters In CS\\Subjects\\Spring 2025\\Cloud-Security-and-Multi-Cloud-Environments\\main\\azure\\LinuxServer_key.pub")  # ✅ Ensure this file exists
+    public_key = file("C:\\Sri Vishal Kotari\\Cloud-Security-and-Multi-Cloud-Environments\\main\\azure\\LinuxServer_key.pub")  # ✅ Ensure this file exists
   }
 
   network_interface_ids = [azurerm_network_interface.wireguard_nic.id]  # ✅ Now it exists!

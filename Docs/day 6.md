@@ -1,0 +1,12 @@
+# EC2 Security and Backup (Day 6)
+- **S3 Backup Fix**:
+  - Issue: AccessDenied for s3:PutObject
+  - Fix: Updated bucket policy, verified settings (ACLs disabled, SSE-S3)
+  - Script: /home/ec2-user/backup-wp.sh
+  - S3: s3://student-portal-wp-content/backups/
+  - Cron: Daily at 2 AM
+- **Security**:
+  - Security Group: HTTP (80, global), SSH (my IP)
+  - WordPress: Wordfence, disabled file edits, SSL
+  - EC2: Updated packages
+- **Tested**: Backup uploaded, site accessible
